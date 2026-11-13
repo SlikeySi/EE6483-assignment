@@ -1,0 +1,39 @@
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+
+# Local datasets (never commit course data)
+train/
+val/
+test/
+data/
+
+# Generated experiment artifacts
+outputs/
+report/
+*.pt
+*.pth
+*.onnx
+*.csv
+*.log
+*.png
+*.jpg
+*.jpeg
+
+# Reports, archives, and local cleanup records
+*.pdf
+*.docx
+*.tar
+*.tar.gz
+*.zip
+.project_cleanup_transaction/
+.github_code_cleanup_transaction/

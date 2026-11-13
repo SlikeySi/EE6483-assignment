@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Dogs vs Cats: smoke test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/train_dogs_cats.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": ["--data-dir", ".", "--model", "smallcnn", "--no-pretrained", "--smoke-test", "--device", "cpu", "--output-dir", "/tmp/ee6483_dogs_smoke_debug"]
+    },
+    {
+      "name": "Dogs vs Cats: predict",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/predict.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": ["--data-dir", ".", "--checkpoint", "outputs/dogs_vs_cats/resnet18_standard_lr3e-4_seed6483/checkpoints/best.pt", "--output", "outputs/dogs_vs_cats/formal_submission/submission.csv"]
+    }
+  ]
+}
+

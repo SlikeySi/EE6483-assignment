@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "EE6483: verify dataset",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python scripts/verify_dataset.py --data-dir . --output outputs/logs/dataset_verification_$(date +%Y%m%d_%H%M%S).json",
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "EE6483: smoke test",
+      "type": "shell",
+      "command": "RUN=/tmp/ee6483_dogs_smoke_$(date +%s); ${workspaceFolder}/.venv/bin/python train_dogs_cats.py --data-dir . --model smallcnn --no-pretrained --smoke-test --device cpu --output-dir $RUN",
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "EE6483: train Dogs vs Cats",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["train_dogs_cats.py", "--data-dir", ".", "--model", "resnet18", "--pretrained", "--no-freeze-backbone", "--epochs", "12", "--batch-size", "32", "--learning-rate", "3e-4", "--augmentation", "standard", "--seed", "6483", "--output-dir", "outputs/dogs_vs_cats/resnet18_standard_lr3e-4_seed6483"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "EE6483: tests",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["-m", "pytest", "-q"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    }
+  ]
+}
+

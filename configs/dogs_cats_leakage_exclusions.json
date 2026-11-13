@@ -1,0 +1,10 @@
+{
+  "cross_split_duplicates": [
+    {
+      "exclude_from_training": "train/cat/cat.2339.jpg",
+      "retained_for_validation": "val/cat/cat.12408.jpg",
+      "sha256": "03c4e9c7e24171105b739e820da9c5d857a0d2c53d75d46ff02b28d78733c25f"
+    }
+  ],
+  "policy": "Retain the validation copy and exclude the matching training sample at loader time. Original images remain untouched."
+}
